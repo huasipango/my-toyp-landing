@@ -3,6 +3,7 @@
 import React from "react";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
+import { AgendaTimeline } from "@/components/ui/agenda-timeline";
 import "../styles/global.css";
 
 const categories = [
@@ -51,11 +52,34 @@ const categories = [
 		description:
 			"Ejemplos de superación ante discapacidad o enfermedad catastrófica.",
 	},
-	{
-		title: "Logro Profesional",
-		description:
-			"Destaca cualidades que llevan a roles de liderazgo en sectores públicos y privados.",
-	},
+        {
+                title: "Logro Profesional",
+                description:
+                        "Destaca cualidades que llevan a roles de liderazgo en sectores públicos y privados.",
+        },
+];
+
+const agendaItems = [
+        {
+                date: "2025-07-31",
+                title: "Convocatoria",
+                subtitle: "Hasta el 31 de julio de 2025",
+        },
+        {
+                date: "2025-08-10",
+                title: "Evaluación y selección",
+                subtitle: "Domingo 10 de agosto de 2025",
+        },
+        {
+                date: "2025-08-11",
+                title: "Notificación de ganadores",
+                subtitle: "Lunes 11 de agosto de 2025",
+        },
+        {
+                date: "2025-08-29",
+                title: "Ceremonia de premiación",
+                subtitle: "Viernes 29 de agosto de 2025 en Hotel Toachi",
+        },
 ];
 ---
 
@@ -136,30 +160,9 @@ const categories = [
 		<section id="agenda" class="bg-[#121214] py-16">
 			<div class="container mx-auto px-4">
 				<h2 class="text-3xl font-semibold mb-6 text-white">Agenda</h2>
-				<ul class="list-disc list-inside space-y-3 text-gray-400">
-					<li>
-						Convocatoria: Hasta el <strong class="text-white"
-							>31 de julio de 2025</strong
-						>
-					</li>
-					<li>
-						Evaluación y selección: <strong class="text-white"
-							>Domingo 10 de agosto de 2025</strong
-						>
-					</li>
-					<li>
-						Notificación de ganadores: <strong class="text-white"
-							>Lunes 11 de agosto de 2025</strong
-						>
-					</li>
-					<li>
-						Ceremonia de premiación: <strong class="text-white"
-							>Viernes 29 de agosto de 2025</strong
-						> en Hotel Toachi
-					</li>
-				</ul>
-			</div>
-		</section>
+                                <AgendaTimeline client:load items={agendaItems} />
+                        </div>
+                </section>
 
 		<!-- Formulario -->
 		<section id="postula" class="py-16 bg-[#18181b]">
