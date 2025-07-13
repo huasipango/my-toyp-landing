@@ -180,7 +180,7 @@ function HeroGeometric({
                 </motion.div>
 
                 <motion.div custom={3} variants={fadeUpVariants} initial="hidden" animate="visible">
-                    <a href="#postula" className="inline-block bg-gradient-to-r from-indigo-300 to-rose-300 text-white py-3 px-8 rounded-full font-bold shadow-lg hover:opacity-90 transition-opacity duration-300">
+                    <a href="https://forms.gle/t5Ep41EKL3sJ5bzj7" className="inline-block bg-gradient-to-r from-indigo-300 to-rose-300 text-white py-3 px-8 rounded-full font-bold shadow-lg hover:opacity-90 transition-opacity duration-300">
                         Postular
                     </a>
                 </motion.div>

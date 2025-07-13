@@ -52,34 +52,34 @@ const categories = [
 		description:
 			"Ejemplos de superación ante discapacidad o enfermedad catastrófica.",
 	},
-        {
-                title: "Logro Profesional",
-                description:
-                        "Destaca cualidades que llevan a roles de liderazgo en sectores públicos y privados.",
-        },
+	{
+		title: "Logro Profesional",
+		description:
+			"Destaca cualidades que llevan a roles de liderazgo en sectores públicos y privados.",
+	},
 ];
 
 const agendaItems = [
-        {
-                date: "2025-07-31",
-                title: "Convocatoria",
-                subtitle: "Hasta el 31 de julio de 2025",
-        },
-        {
-                date: "2025-08-10",
-                title: "Evaluación y selección",
-                subtitle: "Domingo 10 de agosto de 2025",
-        },
-        {
-                date: "2025-08-11",
-                title: "Notificación de ganadores",
-                subtitle: "Lunes 11 de agosto de 2025",
-        },
-        {
-                date: "2025-08-29",
-                title: "Ceremonia de premiación",
-                subtitle: "Viernes 29 de agosto de 2025 en Hotel Toachi",
-        },
+	{
+		date: "2025-07-31",
+		title: "Convocatoria",
+		subtitle: "Hasta el 31 de julio de 2025",
+	},
+	{
+		date: "2025-08-10",
+		title: "Evaluación y selección",
+		subtitle: "Domingo 10 de agosto de 2025",
+	},
+	{
+		date: "2025-08-11",
+		title: "Notificación de ganadores",
+		subtitle: "Lunes 11 de agosto de 2025",
+	},
+	{
+		date: "2025-08-29",
+		title: "Ceremonia de premiación",
+		subtitle: "Viernes 29 de agosto de 2025 en Hotel Toachi",
+	},
 ];
 ---
 
@@ -124,8 +124,9 @@ const agendaItems = [
 							>
 						</li>
 						<li>
-							<a href="#postula" class="hover:text-white"
-								>Postula</a
+							<a
+								href="https://forms.gle/t5Ep41EKL3sJ5bzj7"
+								class="hover:text-white">Postula</a
 							>
 						</li>
 					</ul>
@@ -160,27 +161,7 @@ const agendaItems = [
 		<section id="agenda" class="bg-[#121214] py-16">
 			<div class="container mx-auto px-4">
 				<h2 class="text-3xl font-semibold mb-6 text-white">Agenda</h2>
-                                <AgendaTimeline client:load items={agendaItems} />
-                        </div>
-                </section>
-
-		<!-- Formulario -->
-		<section id="postula" class="py-16 bg-[#18181b]">
-			<div class="container mx-auto px-4">
-				<h2 class="text-3xl font-semibold mb-6 text-white">
-					Postula tu Candidatura
-				</h2>
-				<div
-					class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-lg"
-				>
-					<iframe
-						src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true"
-						class="w-full h-full"
-						frameborder="0"
-						marginheight="0"
-						marginwidth="0">Cargando…</iframe
-					>
-				</div>
+				<AgendaTimeline client:load items={agendaItems} />
 			</div>
 		</section>
 
@@ -189,24 +170,24 @@ const agendaItems = [
 			<div class="container mx-auto px-4 text-center">
 				<img
 					src="/logo-jci-white.svg"
-					alt="JCI"
+					alt="JCI Santo Domingo"
 					class="h-20 mx-auto mb-4"
 				/>
 				<p class="text-gray-400 mb-4">
-					Developing Leaders for a Changing World
+					Desarrollando líderes para un mundo cambiante.
 				</p>
 				<div class="flex justify-center space-x-4">
 					<a
-						href="https://facebook.com"
+						href="https://www.facebook.com/jci.santodomingo"
 						class="text-gray-400 hover:text-white">Facebook</a
 					>
 					<a
-						href="https://instagram.com"
+						href="https://www.instagram.com/jcisantodomingo/"
 						class="text-gray-400 hover:text-white">Instagram</a
 					>
 					<a
-						href="https://jci.org"
-						class="text-gray-400 hover:text-white">jci.org</a
+						href="https://www.tiktok.com/@jci.santodomingo"
+						class="text-gray-400 hover:text-white">TikTok</a
 					>
 				</div>
 				<p class="mt-6 text-sm text-gray-500">
