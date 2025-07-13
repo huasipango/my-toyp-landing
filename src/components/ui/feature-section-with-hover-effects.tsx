@@ -10,7 +10,7 @@ import {
     IconLeaf,
     IconPlayBasketball,
     IconUsers,
-    IconSoccerField,
+    IconLicense,
     IconWheelchair,
     IconBriefcase,
 } from '@tabler/icons-react';
@@ -55,7 +55,7 @@ export function FeaturesSectionWithHoverEffects() {
         {
             title: 'Desarrollo Científico y/o Tecnológico',
             description: 'Impulsa la investigación y tecnologías que abordan desafíos sociales.',
-            icon: <IconSoccerField className="w-8 h-8" />,
+            icon: <IconLicense className="w-8 h-8" />,
         },
         {
             title: 'Superación y/o Logros Personales (Discapacidad)',
