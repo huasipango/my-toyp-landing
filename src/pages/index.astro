@@ -2,6 +2,8 @@
 // src/pages/index.astro
 import React from "react";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import { HeroTOYPInfo } from "@/components/ui/hero-toyp-info";
+import { HeroCTA } from "@/components/ui/hero-cta";
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
 import { AgendaTimeline } from "@/components/ui/agenda-timeline";
 import "../styles/global.css";
@@ -134,15 +136,25 @@ const agendaItems = [
 			</div>
 		</header>
 
-		<!-- Hero -->
-		<section id="sobre">
-			<HeroGeometric
-				client:load
-				badge="Inscripciones abiertas"
-				title1="Los 10 Jóvenes"
-				title2="Más Sobresalientes"
-			/>
-		</section>
+                <!-- Hero -->
+                <section id="sobre">
+                        <HeroGeometric
+                                client:load
+                                badge="Inscripciones abiertas"
+                                title1="Los 10 Jóvenes"
+                                title2="Más Sobresalientes"
+                        />
+                </section>
+
+                <!-- ¿Qué es TOYP? -->
+                <section>
+                        <HeroTOYPInfo client:load />
+                </section>
+
+                <!-- Call to Action -->
+                <section id="postula">
+                        <HeroCTA client:load />
+                </section>
 
 		<!-- Categorías (FeaturesSectionWithHoverEffects) -->
 		<section id="categorias" class="bg-[#121214] py-16">
