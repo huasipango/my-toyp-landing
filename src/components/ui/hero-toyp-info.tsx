@@ -259,8 +259,23 @@ export function HeroTOYPInfoAndCTA() {
             </ul>
           </motion.div>
           <motion.div custom={5} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <a href="https://forms.gle/Hj7UCRd28q9MuACb9" className="inline-block bg-gradient-to-r from-indigo-300 to-rose-300 text-white py-3 px-8 rounded-full font-bold shadow-lg hover:opacity-90 transition-opacity duration-300">
-              Postular
+            <a href="https://forms.gle/Hj7UCRd28q9MuACb9"
+              className="inline-block relative py-3 px-8 rounded-full font-bold shadow-lg transition-opacity duration-300 bg-white text-[#3A67B1] border-2 border-transparent hover:opacity-90"
+              style={{
+                backgroundClip: 'padding-box',
+              }}
+            >
+              <span className="relative z-10">Postular</span>
+              <span
+                className="absolute inset-0 rounded-full p-[2px] pointer-events-none"
+                style={{
+                  background: 'linear-gradient(90deg, #3A67B1, #0097D7, #EDBE38)',
+                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  maskComposite: 'exclude',
+                }}
+                aria-hidden="true"
+              />
             </a>
           </motion.div>
         </div>
