@@ -2,8 +2,7 @@
 // src/pages/index.astro
 import React from "react";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero";
-import { HeroTOYPInfo } from "@/components/ui/hero-toyp-info";
-import { HeroCTA } from "@/components/ui/hero-cta";
+import { HeroTOYPInfoAndCTA } from "@/components/ui/hero-toyp-info";
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
 import { AgendaTimeline } from "@/components/ui/agenda-timeline";
 import "../styles/global.css";
@@ -79,8 +78,8 @@ const agendaItems = [
 	},
 	{
 		date: "2025-08-29",
-		title: "Ceremonia de premiación",
-		subtitle: "Viernes 29 de agosto de 2025 en Hotel Toachi",
+		title: "Ceremonia de premiación presencial",
+		subtitle: "Viernes 29 de agosto de 2025",
 	},
 ];
 ---
@@ -89,7 +88,7 @@ const agendaItems = [
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>TOYP 2025 | JCI Santo Domingo Tsáchilas</title>
+		<title>TOYP 2025 | JCI Santo Domingo</title>
 		<meta
 			name="description"
 			content="Descubre y postula a los 10 jóvenes más sobresalientes de Santo Domingo de los Tsáchilas. Inscripciones abiertas hasta el 31 de julio."
@@ -163,7 +162,7 @@ const agendaItems = [
 				<nav>
 					<ul class="flex space-x-6 text-gray-300">
 						<li>
-							<a href="#sobre" class="hover:text-white">Sobre</a>
+							<a href="#sobre" class="hover:text-white">Acerca</a>
 						</li>
 						<li>
 							<a href="#categorias" class="hover:text-white"
@@ -195,14 +194,9 @@ const agendaItems = [
 			/>
 		</section>
 
-		<!-- ¿Qué es TOYP? -->
-		<section>
-			<HeroTOYPInfo client:load />
-		</section>
-
-		<!-- Call to Action -->
-		<section id="postula">
-			<HeroCTA client:load />
+		<!-- ¿Qué es TOYP? y Call to Action (fusionados) -->
+		<section id="sobre">
+			<HeroTOYPInfoAndCTA client:load />
 		</section>
 
 		<!-- Categorías (FeaturesSectionWithHoverEffects) -->
