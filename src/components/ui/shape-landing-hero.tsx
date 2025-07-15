@@ -153,10 +153,10 @@ function HeroGeometric({
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+                    className="inline-flex items-center gap-4 px-9 py-3 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12 scale-70"
                 >
-                    <Circle className="h-2 w-2 fill-green-500/80" />
-                    <span className="text-sm text-white/60 tracking-wide">
+                    <Circle className="h-6 w-6 fill-green-500/80" />
+                    <span className="text-2xl font-bold text-white/80 tracking-wide">
                         {badge}
                     </span>
                 </motion.div>
@@ -176,7 +176,7 @@ function HeroGeometric({
                     animate="visible"
                 >
                     <p className="text-base sm:text-lg md:text-xl text-white/100 mb-8 leading-relaxed font-medium tracking-wide max-w-xl mx-auto px-4">
-                        de la provincia de Santo Domingo de los Tsáchilas.
+                        de Santo Domingo de los Tsáchilas.
                     </p>
                 </motion.div>
 
