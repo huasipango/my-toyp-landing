@@ -1,19 +1,10 @@
 ---
-// src/pages/index.astro
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 ---
-
-<!doctype html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="refresh" content="0; URL=/toyp-2025" />
-		<meta name="robots" content="noindex" />
-		<title>Redirigiendo…</title>
-	</head>
-	<body
-		class="bg-[#030303] text-white font-inter antialiased flex items-center justify-center h-screen"
-	>
-		<p class="text-lg">Redirigiendo a TOYP 2025…</p>
-	</body>
-</html>
+<Layout>
+  <meta http-equiv="refresh" content="0; URL=/toyp-2025" />
+  <meta name="robots" content="noindex" />
+  <div class="flex items-center justify-center h-screen">
+    <p class="text-lg">Redirigiendo a TOYP 2025…</p>
+  </div>
+</Layout>

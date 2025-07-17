@@ -19,53 +19,53 @@ export function FeaturesSectionWithHoverEffects() {
     const features = [
         {
             title: 'Logros Empresariales',
-            description: 'Reconoce el crecimiento económico inclusivo y sostenible a través del emprendimiento.',
-            icon: <IconBuildingBank className="w-8 h-8" />,
+            description: 'Se evaluará el impacto económico generado, la innovación en modelos de negocio y la capacidad de crear empleo sostenible. La métrica principal será el crecimiento y la sostenibilidad de la empresa o emprendimiento.',
+            icon: <IconBuildingBank className="w-8 h-8" />, 
         },
         {
             title: 'Asuntos Políticos, Legales y/o Gubernamentales',
-            description: 'Reconoce a quienes se destacan en la actividad política o de gobierno, trabajando por los ODS.',
-            icon: <IconGavel className="w-8 h-8" />,
+            description: 'Se valorará la influencia positiva en políticas públicas, la promoción de la participación ciudadana y la gestión ética. La métrica será el alcance y la efectividad de las acciones implementadas.',
+            icon: <IconGavel className="w-8 h-8" />, 
         },
         {
             title: 'Liderazgo y/o Logros Académicos',
-            description: 'Aporta a la educación con iniciativas o herramientas que mejoran el sistema educativo.',
-            icon: <IconAward className="w-8 h-8" />,
+            description: 'Se reconocerá la excelencia académica, la obtención de becas, premios o publicaciones, y el liderazgo en proyectos educativos. La métrica será el nivel de reconocimiento y el impacto en la comunidad educativa.',
+            icon: <IconAward className="w-8 h-8" />, 
         },
         {
             title: 'Logros Culturales',
-            description: 'Premia a artistas cuya obra genera conciencia social con métodos innovadores.',
-            icon: <IconPalette className="w-8 h-8" />,
+            description: 'Se evaluará la originalidad, la proyección nacional o internacional y la capacidad de generar conciencia social a través del arte. La métrica será el alcance y la repercusión de la obra cultural.',
+            icon: <IconPalette className="w-8 h-8" />, 
         },
         {
             title: 'Liderazgo Ambiental',
-            description: 'Destaca soluciones sostenibles para reducir la huella de carbono.',
-            icon: <IconLeaf className="w-8 h-8" />,
+            description: 'Se medirá la implementación de soluciones sostenibles, la reducción de huella ecológica y la educación ambiental. La métrica será el impacto ambiental cuantificable y la replicabilidad de la iniciativa.',
+            icon: <IconLeaf className="w-8 h-8" />, 
         },
         {
             title: 'Logros Deportivos',
-            description: 'Reconoce a deportistas que son ejemplo de superación y excelencia.',
-            icon: <IconPlayBasketball className="w-8 h-8" />,
+            description: 'Se evaluará el rendimiento competitivo, la superación personal y el ejemplo de disciplina. La métrica será la obtención de títulos, récords o reconocimientos deportivos.',
+            icon: <IconPlayBasketball className="w-8 h-8" />, 
         },
         {
             title: 'Liderazgo Humanitario y/o Voluntario',
-            description: 'Fomenta sociedades pacíficas e inclusivas mediante voluntariado.',
-            icon: <IconUsers className="w-8 h-8" />,
+            description: 'Se valorará la capacidad de movilizar voluntarios, la creación de proyectos solidarios y el impacto social directo. La métrica será la cantidad de beneficiarios y la sostenibilidad de las acciones.',
+            icon: <IconUsers className="w-8 h-8" />, 
         },
         {
             title: 'Desarrollo Científico y/o Tecnológico',
-            description: 'Impulsa la investigación y tecnologías que abordan desafíos sociales.',
-            icon: <IconLicense className="w-8 h-8" />,
+            description: 'Se evaluará la innovación, la aplicación práctica de conocimientos y la solución de problemas sociales mediante ciencia o tecnología. La métrica será la implementación y el alcance de la solución.',
+            icon: <IconLicense className="w-8 h-8" />, 
         },
         {
             title: 'Superación y/o Logros Personales (Discapacidad)',
-            description: 'Ejemplos de superación ante discapacidad o enfermedad catastrófica.',
-            icon: <IconWheelchair className="w-8 h-8" />,
+            description: 'Se reconocerá la resiliencia, la capacidad de inspirar y la superación de barreras físicas o sociales. La métrica será el impacto en la comunidad y el ejemplo de vida.',
+            icon: <IconWheelchair className="w-8 h-8" />, 
         },
         {
             title: 'Logro Profesional',
-            description: 'Destaca cualidades que llevan a roles de liderazgo en sectores públicos y privados.',
-            icon: <IconBriefcase className="w-8 h-8" />,
+            description: 'Se evaluará el ascenso profesional, el liderazgo en equipos y la contribución a la excelencia organizacional. La métrica será el nivel de responsabilidad alcanzado y los resultados obtenidos.',
+            icon: <IconBriefcase className="w-8 h-8" />, 
         },
     ];
     return (
