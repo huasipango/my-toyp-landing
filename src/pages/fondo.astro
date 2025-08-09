@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import "../styles/global.css";
+---
+<Layout>
+  <div class="min-h-screen bg-[#18181b]">
+    <HeroGeometric client:load showOnlyBackground={true} />
+  </div>
+</Layout>

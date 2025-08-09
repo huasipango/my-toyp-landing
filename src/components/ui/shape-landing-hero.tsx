@@ -77,23 +77,25 @@ function HeroGeometric({
     badge = "Design Collective",
     title1 = "Elevate Your Digital Vision",
     title2 = "Crafting Exceptional Websites",
+    showOnlyBackground = false,
 }: {
     badge?: string;
     title1?: string;
     title2?: string;
+    showOnlyBackground?: boolean;
 }) {
-    const fadeUpVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: (i: number) => ({
+    const getDelayedTransition = (index: number) => ({
+        initial: { opacity: 0, y: 30 },
+        animate: {
             opacity: 1,
             y: 0,
             transition: {
                 duration: 1,
-                delay: 0.5 + i * 0.2,
-                ease: [0.25, 0.4, 0.25, 1],
+                delay: 0.5 + index * 0.2,
+                ease: [0.25, 0.4, 0.25, 1] as any,
             },
-        }),
-    };
+        },
+    });
 
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
@@ -146,61 +148,54 @@ function HeroGeometric({
                 />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 md:px-6 text-center space-y-6">
-
-                <motion.div
-                    custom={0}
-                    variants={fadeUpVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
-                >
-                    <Circle className="h-2 w-2 fill-green-500/80" />
-                    <span className="text-sm text-white/60 tracking-wide">
-                        {badge}
-                    </span>
-                </motion.div>
-
-                <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
-                    <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-                        <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#3A67B1] via-[#0097D7] to-[#EDBE38]">{title1}</span>
-                        <br />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#3A67B1] via-[#0097D7] to-[#EDBE38] ">{title2}</span>
-                    </h1>
-                </motion.div>
-
-                <motion.div
-                    custom={2}
-                    variants={fadeUpVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    <p className="text-base sm:text-lg md:text-xl text-white/100 mb-8 leading-relaxed font-medium tracking-wide max-w-xl mx-auto px-4">
-                        de la provincia de Santo Domingo de los Tsáchilas.
-                    </p>
-                </motion.div>
-
-                <motion.div custom={3} variants={fadeUpVariants} initial="hidden" animate="visible">
-                    <a href="https://forms.gle/t5Ep41EKL3sJ5bzj7"
-                      className="inline-block relative py-3 px-8 rounded-full font-bold shadow-lg transition-opacity duration-300 bg-white text-[#3A67B1] border-2 border-transparent hover:opacity-90"
-                      style={{
-                        backgroundClip: 'padding-box',
-                      }}
+            {!showOnlyBackground && (
+                <div className="relative z-10 container mx-auto px-4 md:px-6 text-center space-y-6">
+                    <motion.div
+                        {...getDelayedTransition(0)}
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
                     >
-                      <span className="relative z-10">Postular</span>
-                      <span
-                        className="absolute inset-0 rounded-full p-[2px] pointer-events-none"
-                        style={{
-                          background: 'linear-gradient(90deg, #3A67B1, #0097D7, #EDBE38)',
-                          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                          WebkitMaskComposite: 'xor',
-                          maskComposite: 'exclude',
-                        }}
-                        aria-hidden="true"
-                      />
-                    </a>
-                </motion.div>
-            </div>
+                        <Circle className="h-2 w-2 fill-green-500/80" />
+                        <span className="text-sm text-white/60 tracking-wide">
+                            {badge}
+                        </span>
+                    </motion.div>
+
+                    <motion.div {...getDelayedTransition(1)}>
+                        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#3A67B1] via-[#0097D7] to-[#EDBE38]">{title1}</span>
+                            <br />
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#3A67B1] via-[#0097D7] to-[#EDBE38] ">{title2}</span>
+                        </h1>
+                    </motion.div>
+
+                    <motion.div {...getDelayedTransition(2)}>
+                        <p className="text-base sm:text-lg md:text-xl text-white/100 mb-8 leading-relaxed font-medium tracking-wide max-w-xl mx-auto px-4">
+                            de la provincia de Santo Domingo de los Tsáchilas.
+                        </p>
+                    </motion.div>
+
+                    <motion.div {...getDelayedTransition(3)}>
+                        <a href="https://forms.gle/t5Ep41EKL3sJ5bzj7"
+                          className="inline-block relative py-3 px-8 rounded-full font-bold shadow-lg transition-opacity duration-300 bg-white text-[#3A67B1] border-2 border-transparent hover:opacity-90"
+                          style={{
+                            backgroundClip: 'padding-box',
+                          }}
+                        >
+                          <span className="relative z-10">Postular</span>
+                          <span
+                            className="absolute inset-0 rounded-full p-[2px] pointer-events-none"
+                            style={{
+                              background: 'linear-gradient(90deg, #3A67B1, #0097D7, #EDBE38)',
+                              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                              WebkitMaskComposite: 'xor',
+                              maskComposite: 'exclude',
+                            }}
+                            aria-hidden="true"
+                          />
+                        </a>
+                    </motion.div>
+                </div>
+            )}
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
         </div >
