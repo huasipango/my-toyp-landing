@@ -2,10 +2,7 @@
 import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  JciBackgroundParticles,
-  JciLightFadeOverlay,
-} from "@/components/ui/jci-background-particles";
+import { PostularButton } from "@/components/ui/postular-button";
 
 export function HeroTOYPInfoAndCTA({
   variant = "dark",
@@ -34,16 +31,16 @@ export function HeroTOYPInfoAndCTA({
   return (
     <div
       className={cn(
-        "relative min-h-screen w-full flex items-center justify-center overflow-hidden",
-        isLight ? "bg-neutral-50" : "bg-[#030303]"
+        "relative w-full overflow-hidden",
+        isLight
+          ? "bg-white pt-28 sm:pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-24"
+          : "min-h-screen flex items-center justify-center bg-[#030303]"
       )}
     >
       {!isLight && (
         <div className="absolute inset-0 blur-3xl bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05]" />
       )}
-      {isLight ? (
-        <JciBackgroundParticles ambient="soft" />
-      ) : (
+      {!isLight && (
         <div className="absolute inset-0 overflow-hidden">
           <ElegantShapeDark
             delay={0.3}
@@ -71,7 +68,7 @@ export function HeroTOYPInfoAndCTA({
           />
         </div>
       )}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 text-center flex flex-col items-center justify-center gap-10 md:gap-16">
+      <div className="relative z-10 container mx-auto px-4 md:px-6 text-center flex flex-col items-center gap-10 md:gap-16">
         <div className="space-y-6 max-w-2xl mx-auto">
           <motion.div
             custom={0}
@@ -165,38 +162,12 @@ export function HeroTOYPInfoAndCTA({
           </motion.div>
           {formUrl && (
             <motion.div custom={5} variants={fadeUpVariants} initial="hidden" animate="visible">
-              <a
-                href={formUrl}
-                className={cn(
-                  "inline-block relative py-3 px-8 rounded-full font-bold shadow-lg transition-opacity duration-300 hover:opacity-90",
-                  isLight
-                    ? "bg-toyp-gold text-white hover:bg-toyp-gold/90"
-                    : "bg-white text-[#3A67B1] border-2 border-transparent"
-                )}
-              >
-                <span className="relative z-10">Postular</span>
-                {!isLight && (
-                  <span
-                    className="absolute inset-0 rounded-full p-[2px] pointer-events-none"
-                    style={{
-                      background:
-                        "linear-gradient(90deg, #3A67B1, #0097D7, #EDBE38)",
-                      WebkitMask:
-                        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                      WebkitMaskComposite: "xor",
-                      maskComposite: "exclude",
-                    }}
-                    aria-hidden="true"
-                  />
-                )}
-              </a>
+              <PostularButton href={formUrl} variant={isLight ? "light" : "dark"} />
             </motion.div>
           )}
         </div>
       </div>
-      {isLight ? (
-        <JciLightFadeOverlay baseColor="neutral" />
-      ) : (
+      {!isLight && (
         <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
       )}
     </div>

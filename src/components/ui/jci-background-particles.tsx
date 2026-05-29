@@ -10,34 +10,34 @@ const JCI_COLOR_STYLES: Record<
   { gradient: string; border: string; shadow: string; glow: string }
 > = {
   navy: {
-    gradient: "from-toyp-navy/45 via-toyp-navy/25",
-    border: "border-toyp-navy/30",
-    shadow: "shadow-[0_8px_40px_0_rgba(27,42,74,0.22)]",
-    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(27,42,74,0.35),transparent_70%)]",
+    gradient: "from-toyp-navy/22 via-toyp-navy/12",
+    border: "border-toyp-navy/15",
+    shadow: "shadow-[0_4px_24px_0_rgba(27,42,74,0.1)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(27,42,74,0.15),transparent_70%)]",
   },
   sky: {
-    gradient: "from-toyp-sky/50 via-toyp-sky/28",
-    border: "border-toyp-sky/35",
-    shadow: "shadow-[0_8px_40px_0_rgba(0,151,215,0.28)]",
-    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(0,151,215,0.4),transparent_70%)]",
+    gradient: "from-toyp-sky/24 via-toyp-sky/14",
+    border: "border-toyp-sky/18",
+    shadow: "shadow-[0_4px_24px_0_rgba(0,151,215,0.12)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(0,151,215,0.18),transparent_70%)]",
   },
   blue: {
-    gradient: "from-toyp-blue/45 via-toyp-blue/25",
-    border: "border-toyp-blue/30",
-    shadow: "shadow-[0_8px_40px_0_rgba(58,103,177,0.25)]",
-    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(58,103,177,0.35),transparent_70%)]",
+    gradient: "from-toyp-blue/22 via-toyp-blue/12",
+    border: "border-toyp-blue/15",
+    shadow: "shadow-[0_4px_24px_0_rgba(58,103,177,0.1)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(58,103,177,0.15),transparent_70%)]",
   },
   gold: {
-    gradient: "from-toyp-gold/55 via-toyp-gold/30",
-    border: "border-toyp-gold/40",
-    shadow: "shadow-[0_8px_40px_0_rgba(201,162,39,0.32)]",
-    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(201,162,39,0.45),transparent_70%)]",
+    gradient: "from-toyp-gold/26 via-toyp-gold/14",
+    border: "border-toyp-gold/20",
+    shadow: "shadow-[0_4px_24px_0_rgba(201,162,39,0.14)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(201,162,39,0.2),transparent_70%)]",
   },
   "gold-light": {
-    gradient: "from-toyp-gold-light/60 via-toyp-gold-light/35",
-    border: "border-toyp-gold-light/45",
-    shadow: "shadow-[0_8px_40px_0_rgba(237,190,56,0.35)]",
-    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(237,190,56,0.5),transparent_70%)]",
+    gradient: "from-toyp-gold-light/28 via-toyp-gold-light/15",
+    border: "border-toyp-gold-light/22",
+    shadow: "shadow-[0_4px_24px_0_rgba(237,190,56,0.15)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(237,190,56,0.22),transparent_70%)]",
   },
 };
 
@@ -49,6 +49,7 @@ const LIGHT_PARTICLES: Array<{
   color: JciColor;
   className: string;
   floatDuration?: number;
+  hideOnMobile?: boolean;
 }> = [
   {
     delay: 0.2,
@@ -73,6 +74,7 @@ const LIGHT_PARTICLES: Array<{
     rotate: -6,
     color: "gold-light",
     className: "left-[2%] md:left-[6%] bottom-[4%] md:bottom-[8%]",
+    hideOnMobile: true,
   },
   {
     delay: 0.55,
@@ -99,6 +101,7 @@ const LIGHT_PARTICLES: Array<{
     color: "gold",
     className: "right-[28%] md:right-[32%] bottom-[18%] md:bottom-[22%]",
     floatDuration: 9,
+    hideOnMobile: true,
   },
   {
     delay: 0.85,
@@ -108,6 +111,7 @@ const LIGHT_PARTICLES: Array<{
     color: "sky",
     className: "left-[42%] md:left-[46%] top-[72%] md:top-[76%]",
     floatDuration: 11,
+    hideOnMobile: true,
   },
   {
     delay: 0.95,
@@ -117,6 +121,7 @@ const LIGHT_PARTICLES: Array<{
     color: "gold-light",
     className: "right-[4%] md:right-[8%] top-[38%] md:top-[42%]",
     floatDuration: 8,
+    hideOnMobile: true,
   },
   {
     delay: 1.05,
@@ -126,6 +131,7 @@ const LIGHT_PARTICLES: Array<{
     color: "blue",
     className: "left-[8%] md:left-[12%] top-[42%] md:top-[46%]",
     floatDuration: 7,
+    hideOnMobile: true,
   },
 ];
 
@@ -137,6 +143,7 @@ function JciParticle({
   color,
   className,
   floatDuration = 12,
+  hideOnMobile = false,
 }: {
   delay: number;
   width: number;
@@ -145,6 +152,7 @@ function JciParticle({
   color: JciColor;
   className?: string;
   floatDuration?: number;
+  hideOnMobile?: boolean;
 }) {
   const styles = JCI_COLOR_STYLES[color];
 
@@ -158,10 +166,10 @@ function JciParticle({
         ease: [0.23, 0.86, 0.39, 0.96],
         opacity: { duration: 1.4 },
       }}
-      className={cn("absolute", className)}
+      className={cn("absolute max-md:scale-[0.55] md:scale-100", hideOnMobile && "hidden md:block", className)}
     >
       <motion.div
-        animate={{ y: [0, 18, 0], x: [0, 6, 0] }}
+        animate={{ y: [0, 12, 0], x: [0, 4, 0] }}
         transition={{
           duration: floatDuration,
           repeat: Number.POSITIVE_INFINITY,
@@ -172,12 +180,13 @@ function JciParticle({
       >
         <div
           className={cn(
-            "absolute inset-0 rounded-full bg-gradient-to-r to-transparent backdrop-blur-[1px]",
+            "absolute inset-0 rounded-full bg-gradient-to-r to-transparent",
             styles.gradient,
             styles.border,
-            "border-2",
+            "border md:border-2",
+            "md:shadow-none",
             styles.shadow,
-            "after:absolute after:inset-0 after:rounded-full",
+            "after:absolute after:inset-0 after:rounded-full md:after:block after:hidden",
             styles.glow
           )}
         />
@@ -194,13 +203,19 @@ export function JciBackgroundParticles({
   ambient?: "default" | "soft";
 }) {
   return (
-    <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", className)}>
+    <div
+      className={cn(
+        "absolute inset-0 z-0 overflow-hidden pointer-events-none",
+        "opacity-[0.38] sm:opacity-55 md:opacity-70 lg:opacity-80",
+        className
+      )}
+    >
       <div
         className={cn(
           "absolute inset-0 blur-3xl",
           ambient === "soft"
-            ? "bg-[radial-gradient(ellipse_at_20%_20%,rgba(0,151,215,0.12),transparent_50%),radial-gradient(ellipse_at_80%_70%,rgba(201,162,39,0.14),transparent_50%),radial-gradient(ellipse_at_50%_50%,rgba(58,103,177,0.08),transparent_60%)]"
-            : "bg-[radial-gradient(ellipse_at_15%_15%,rgba(0,151,215,0.16),transparent_45%),radial-gradient(ellipse_at_85%_75%,rgba(201,162,39,0.18),transparent_45%),radial-gradient(ellipse_at_55%_40%,rgba(58,103,177,0.12),transparent_55%),radial-gradient(ellipse_at_30%_80%,rgba(237,190,56,0.14),transparent_40%),radial-gradient(ellipse_at_75%_20%,rgba(27,42,74,0.1),transparent_45%)]"
+            ? "bg-[radial-gradient(ellipse_at_20%_20%,rgba(0,151,215,0.06),transparent_50%),radial-gradient(ellipse_at_80%_70%,rgba(201,162,39,0.07),transparent_50%)]"
+            : "bg-[radial-gradient(ellipse_at_15%_15%,rgba(0,151,215,0.08),transparent_45%),radial-gradient(ellipse_at_85%_75%,rgba(201,162,39,0.09),transparent_45%),radial-gradient(ellipse_at_55%_40%,rgba(58,103,177,0.05),transparent_55%)]"
         )}
       />
       {LIGHT_PARTICLES.map((particle) => (
@@ -210,21 +225,15 @@ export function JciBackgroundParticles({
   );
 }
 
-export function JciLightFadeOverlay({
-  baseColor = "white",
-}: {
-  baseColor?: "white" | "neutral";
-}) {
-  const from =
-    baseColor === "white"
-      ? "from-white via-white/40 to-white/70"
-      : "from-neutral-50 via-neutral-50/35 to-neutral-50/65";
-
+export function JciContentScrim({ className }: { className?: string }) {
   return (
     <div
+      aria-hidden
       className={cn(
-        "absolute inset-0 pointer-events-none bg-gradient-to-t",
-        from
+        "pointer-events-none absolute inset-0 -z-10",
+        "bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.82)_45%,rgba(255,255,255,0.4)_75%,transparent_100%)]",
+        "md:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.75)_0%,rgba(255,255,255,0.35)_50%,transparent_80%)]",
+        className
       )}
     />
   );

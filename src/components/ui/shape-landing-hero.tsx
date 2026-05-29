@@ -5,8 +5,9 @@ import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   JciBackgroundParticles,
-  JciLightFadeOverlay,
+  JciContentScrim,
 } from "@/components/ui/jci-background-particles";
+import { PostularButton } from "@/components/ui/postular-button";
 
 function ElegantShape({
   className,
@@ -60,41 +61,6 @@ function ElegantShape({
   );
 }
 
-function PostularButton({
-  href,
-  isLight,
-}: {
-  href: string;
-  isLight: boolean;
-}) {
-  return (
-    <a
-      href={href}
-      className={cn(
-        "inline-block relative py-3 px-10 rounded-full font-bold text-base sm:text-lg shadow-lg transition-opacity duration-300 hover:opacity-90",
-        isLight
-          ? "bg-toyp-gold text-white hover:bg-toyp-gold/90"
-          : "bg-white text-[#3A67B1] border-2 border-transparent"
-      )}
-    >
-      <span className="relative z-10">Postular</span>
-      {!isLight && (
-        <span
-          className="absolute inset-0 rounded-full p-[2px] pointer-events-none"
-          style={{
-            background: "linear-gradient(90deg, #3A67B1, #0097D7, #EDBE38)",
-            WebkitMask:
-              "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-            WebkitMaskComposite: "xor",
-            maskComposite: "exclude",
-          }}
-          aria-hidden="true"
-        />
-      )}
-    </a>
-  );
-}
-
 function HeroGeometric({
   badge = "Design Collective",
   title1 = "Elevate Your Digital Vision",
@@ -144,7 +110,7 @@ function HeroGeometric({
       )}
 
       {isLight ? (
-        <JciBackgroundParticles />
+        <JciBackgroundParticles ambient="soft" />
       ) : (
         <div className="absolute inset-0 overflow-hidden">
           <ElegantShape
@@ -192,6 +158,8 @@ function HeroGeometric({
 
       {!showOnlyBackground && (
         <div className="relative z-10 container mx-auto px-4 md:px-6 text-center space-y-6">
+          {isLight && <JciContentScrim />}
+          <div className="relative">
           <motion.div
             {...getDelayedTransition(0)}
             className={cn(
@@ -249,7 +217,7 @@ function HeroGeometric({
               </h1>
             )}
             {(showPostularButton || (formUrl && titleImage)) && (
-              <PostularButton href={postularHref} isLight={isLight} />
+              <PostularButton href={postularHref} variant={isLight ? "light" : "dark"} />
             )}
           </motion.div>
 
@@ -268,15 +236,14 @@ function HeroGeometric({
 
           {formUrl && !titleImage && (
             <motion.div {...getDelayedTransition(3)}>
-              <PostularButton href={postularHref} isLight={isLight} />
+              <PostularButton href={postularHref} variant={isLight ? "light" : "dark"} />
             </motion.div>
           )}
+          </div>
         </div>
       )}
 
-      {isLight ? (
-        <JciLightFadeOverlay baseColor="white" />
-      ) : (
+      {isLight ? null : (
         <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
       )}
     </div>
