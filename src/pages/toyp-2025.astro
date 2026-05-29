@@ -7,8 +7,6 @@ import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section
 import { AgendaTimeline } from "@/components/ui/agenda-timeline";
 import "../styles/global.css";
 
-const formUrl = "https://forms.gle/t5Ep41EKL3sJ5bzj7";
-
 const agendaItems = [
 	{
 		date: "2025-08-05",
@@ -35,7 +33,7 @@ const agendaItems = [
 <Layout
   theme="dark"
   title="TOYP 2025 | JCI Santo Domingo"
-  description="Descubre y postula a los 10 jóvenes más sobresalientes de Santo Domingo de los Tsáchilas. Inscripciones abiertas hasta el 05 de agosto de 2025."
+  description="Edición histórica TOYP 2025: los 10 jóvenes más sobresalientes de Santo Domingo de los Tsáchilas."
   canonical="https://jcisantodomingo.org/toyp-2025"
   year={2025}
 >
@@ -51,7 +49,7 @@ const agendaItems = [
           <li><a href="#sobre" class="hover:text-white">Acerca</a></li>
           <li><a href="#categorias" class="hover:text-white">Categorías</a></li>
           <li><a href="#agenda" class="hover:text-white">Agenda</a></li>
-          <li><a href="https://forms.gle/t5Ep41EKL3sJ5bzj7" class="hover:text-white">Postula</a></li>
+          <li><a href="/" class="text-[#0097D7] hover:text-[#0097D7]/80 transition-colors font-medium">2026</a></li>
         </ul>
       </nav>
     </div>
@@ -59,12 +57,12 @@ const agendaItems = [
 
   <!-- Hero -->
   <section id="sobre">
-    <HeroGeometric client:load variant="dark" badge="Inscripciones abiertas" title1="Los 10 Jóvenes" title2="Más Sobresalientes" />
+    <HeroGeometric client:load variant="dark" badge="Edición histórica" title1="Los 10 Jóvenes" title2="Más Sobresalientes" />
   </section>
 
   <!-- ¿Qué es TOYP? y Call to Action (fusionados) -->
   <section id="sobre">
-    <HeroTOYPInfoAndCTA client:load variant="dark" year={2025} formUrl={formUrl} />
+    <HeroTOYPInfoAndCTA client:load variant="dark" year={2025} />
   </section>
 
   <!-- Categorías (FeaturesSectionWithHoverEffects) -->
