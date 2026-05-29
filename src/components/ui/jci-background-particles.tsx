@@ -1,0 +1,231 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+type JciColor = "navy" | "sky" | "blue" | "gold" | "gold-light";
+
+const JCI_COLOR_STYLES: Record<
+  JciColor,
+  { gradient: string; border: string; shadow: string; glow: string }
+> = {
+  navy: {
+    gradient: "from-toyp-navy/45 via-toyp-navy/25",
+    border: "border-toyp-navy/30",
+    shadow: "shadow-[0_8px_40px_0_rgba(27,42,74,0.22)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(27,42,74,0.35),transparent_70%)]",
+  },
+  sky: {
+    gradient: "from-toyp-sky/50 via-toyp-sky/28",
+    border: "border-toyp-sky/35",
+    shadow: "shadow-[0_8px_40px_0_rgba(0,151,215,0.28)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(0,151,215,0.4),transparent_70%)]",
+  },
+  blue: {
+    gradient: "from-toyp-blue/45 via-toyp-blue/25",
+    border: "border-toyp-blue/30",
+    shadow: "shadow-[0_8px_40px_0_rgba(58,103,177,0.25)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(58,103,177,0.35),transparent_70%)]",
+  },
+  gold: {
+    gradient: "from-toyp-gold/55 via-toyp-gold/30",
+    border: "border-toyp-gold/40",
+    shadow: "shadow-[0_8px_40px_0_rgba(201,162,39,0.32)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(201,162,39,0.45),transparent_70%)]",
+  },
+  "gold-light": {
+    gradient: "from-toyp-gold-light/60 via-toyp-gold-light/35",
+    border: "border-toyp-gold-light/45",
+    shadow: "shadow-[0_8px_40px_0_rgba(237,190,56,0.35)]",
+    glow: "after:bg-[radial-gradient(circle_at_50%_50%,rgba(237,190,56,0.5),transparent_70%)]",
+  },
+};
+
+const LIGHT_PARTICLES: Array<{
+  delay: number;
+  width: number;
+  height: number;
+  rotate: number;
+  color: JciColor;
+  className: string;
+  floatDuration?: number;
+}> = [
+  {
+    delay: 0.2,
+    width: 720,
+    height: 170,
+    rotate: 14,
+    color: "sky",
+    className: "left-[-12%] md:left-[-6%] top-[10%] md:top-[14%]",
+  },
+  {
+    delay: 0.35,
+    width: 580,
+    height: 140,
+    rotate: -18,
+    color: "gold",
+    className: "right-[-8%] md:right-[-2%] top-[62%] md:top-[68%]",
+  },
+  {
+    delay: 0.45,
+    width: 420,
+    height: 110,
+    rotate: -6,
+    color: "gold-light",
+    className: "left-[2%] md:left-[6%] bottom-[4%] md:bottom-[8%]",
+  },
+  {
+    delay: 0.55,
+    width: 320,
+    height: 85,
+    rotate: 22,
+    color: "navy",
+    className: "right-[10%] md:right-[16%] top-[8%] md:top-[12%]",
+  },
+  {
+    delay: 0.65,
+    width: 260,
+    height: 70,
+    rotate: -28,
+    color: "blue",
+    className: "left-[18%] md:left-[22%] top-[4%] md:top-[8%]",
+    floatDuration: 10,
+  },
+  {
+    delay: 0.75,
+    width: 200,
+    height: 55,
+    rotate: 32,
+    color: "gold",
+    className: "right-[28%] md:right-[32%] bottom-[18%] md:bottom-[22%]",
+    floatDuration: 9,
+  },
+  {
+    delay: 0.85,
+    width: 180,
+    height: 48,
+    rotate: -12,
+    color: "sky",
+    className: "left-[42%] md:left-[46%] top-[72%] md:top-[76%]",
+    floatDuration: 11,
+  },
+  {
+    delay: 0.95,
+    width: 140,
+    height: 40,
+    rotate: 40,
+    color: "gold-light",
+    className: "right-[4%] md:right-[8%] top-[38%] md:top-[42%]",
+    floatDuration: 8,
+  },
+  {
+    delay: 1.05,
+    width: 120,
+    height: 35,
+    rotate: -35,
+    color: "blue",
+    className: "left-[8%] md:left-[12%] top-[42%] md:top-[46%]",
+    floatDuration: 7,
+  },
+];
+
+function JciParticle({
+  delay,
+  width,
+  height,
+  rotate,
+  color,
+  className,
+  floatDuration = 12,
+}: {
+  delay: number;
+  width: number;
+  height: number;
+  rotate: number;
+  color: JciColor;
+  className?: string;
+  floatDuration?: number;
+}) {
+  const styles = JCI_COLOR_STYLES[color];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -120, rotate: rotate - 15 }}
+      animate={{ opacity: 1, y: 0, rotate }}
+      transition={{
+        duration: 2.2,
+        delay,
+        ease: [0.23, 0.86, 0.39, 0.96],
+        opacity: { duration: 1.4 },
+      }}
+      className={cn("absolute", className)}
+    >
+      <motion.div
+        animate={{ y: [0, 18, 0], x: [0, 6, 0] }}
+        transition={{
+          duration: floatDuration,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "easeInOut",
+        }}
+        style={{ width, height }}
+        className="relative"
+      >
+        <div
+          className={cn(
+            "absolute inset-0 rounded-full bg-gradient-to-r to-transparent backdrop-blur-[1px]",
+            styles.gradient,
+            styles.border,
+            "border-2",
+            styles.shadow,
+            "after:absolute after:inset-0 after:rounded-full",
+            styles.glow
+          )}
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
+
+export function JciBackgroundParticles({
+  className,
+  ambient = "default",
+}: {
+  className?: string;
+  ambient?: "default" | "soft";
+}) {
+  return (
+    <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", className)}>
+      <div
+        className={cn(
+          "absolute inset-0 blur-3xl",
+          ambient === "soft"
+            ? "bg-[radial-gradient(ellipse_at_20%_20%,rgba(0,151,215,0.12),transparent_50%),radial-gradient(ellipse_at_80%_70%,rgba(201,162,39,0.14),transparent_50%),radial-gradient(ellipse_at_50%_50%,rgba(58,103,177,0.08),transparent_60%)]"
+            : "bg-[radial-gradient(ellipse_at_15%_15%,rgba(0,151,215,0.16),transparent_45%),radial-gradient(ellipse_at_85%_75%,rgba(201,162,39,0.18),transparent_45%),radial-gradient(ellipse_at_55%_40%,rgba(58,103,177,0.12),transparent_55%),radial-gradient(ellipse_at_30%_80%,rgba(237,190,56,0.14),transparent_40%),radial-gradient(ellipse_at_75%_20%,rgba(27,42,74,0.1),transparent_45%)]"
+        )}
+      />
+      {LIGHT_PARTICLES.map((particle) => (
+        <JciParticle key={`${particle.color}-${particle.className}`} {...particle} />
+      ))}
+    </div>
+  );
+}
+
+export function JciLightFadeOverlay({
+  baseColor = "white",
+}: {
+  baseColor?: "white" | "neutral";
+}) {
+  const from =
+    baseColor === "white"
+      ? "from-white via-white/40 to-white/70"
+      : "from-neutral-50 via-neutral-50/35 to-neutral-50/65";
+
+  return (
+    <div
+      className={cn(
+        "absolute inset-0 pointer-events-none bg-gradient-to-t",
+        from
+      )}
+    />
+  );
+}

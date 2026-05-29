@@ -1,10 +1,109 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import { HeroTOYPInfoAndCTA } from "@/components/ui/hero-toyp-info";
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
+import { AgendaTimeline } from "@/components/ui/agenda-timeline";
+
+// Actualizar con la URL del formulario 2026 cuando esté disponible
+const formUrl = "";
+
+const agendaItems = [
+  {
+    date: "2026-05-30",
+    title: "Lanzamiento de la convocatoria",
+    subtitle: "Sábado 30 de mayo de 2026",
+  },
+  {
+    date: "2026-07-12",
+    title: "Cierre de postulaciones",
+    subtitle: "Domingo 12 de julio de 2026",
+  },
+  {
+    date: "2026-07-30",
+    title: "Evaluación y selección",
+    subtitle: "Jueves 30 de julio de 2026",
+  },
+  {
+    date: "2026-07-31",
+    title: "Notificación de ganadores",
+    subtitle: "Viernes 31 de julio de 2026",
+  },
+  {
+    date: "2026-08-14",
+    title: "Ceremonia de premiación",
+    subtitle: "Viernes 14 de agosto de 2026",
+  },
+];
 ---
-<Layout>
-  <meta http-equiv="refresh" content="0; URL=/toyp-2025" />
-  <meta name="robots" content="noindex" />
-  <div class="flex items-center justify-center h-screen">
-    <p class="text-lg">Redirigiendo a TOYP 2025…</p>
-  </div>
+<Layout
+  theme="light"
+  title="TOYP 2026 | JCI Santo Domingo"
+  description="Descubre y postula a los 10 jóvenes más sobresalientes de Santo Domingo de los Tsáchilas 2026."
+  canonical="https://jcisantodomingo.org/"
+  year={2026}
+>
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-toyp-navy/10 py-4">
+    <div class="container mx-auto flex items-center justify-between px-4">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-bold text-toyp-navy">TOYP <span class="text-toyp-gold">2026</span></h1>
+      </div>
+      <nav>
+        <ul class="flex space-x-6 text-neutral-600">
+          <li><a href="#sobre" class="hover:text-toyp-sky transition-colors">Acerca</a></li>
+          <li><a href="#categorias" class="hover:text-toyp-sky transition-colors">Categorías</a></li>
+          <li><a href="#agenda" class="hover:text-toyp-sky transition-colors">Agenda</a></li>
+          <li><a href={formUrl || "#postula"} class="hover:text-toyp-sky transition-colors">Postula</a></li>
+          <li><a href="/toyp-2025" class="text-toyp-sky hover:text-toyp-sky/80 transition-colors font-medium">2025</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="sobre">
+    <HeroGeometric
+      client:load
+      variant="light"
+      badge="Convocatoria 2026"
+      titleImage="/TOYP-2026.png"
+      title1="Los 10 Jóvenes"
+      title2="Más Sobresalientes"
+      subtitle="de la provincia de Santo Domingo de los Tsáchilas 2026."
+      showPostularButton={true}
+      formUrl={formUrl || undefined}
+    />
+  </section>
+
+  <section id="postula">
+    <HeroTOYPInfoAndCTA client:load variant="light" year={2026} formUrl={formUrl || undefined} />
+  </section>
+
+  <section id="categorias" class="bg-white py-16 border-t border-toyp-navy/5">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold mb-8 text-toyp-gold">
+        Categorías
+      </h2>
+      <FeaturesSectionWithHoverEffects client:load />
+    </div>
+  </section>
+
+  <section id="agenda" class="bg-neutral-50 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold mb-6 text-toyp-gold">Agenda</h2>
+      <AgendaTimeline client:load items={agendaItems} variant="light" />
+    </div>
+  </section>
+
+  <footer class="bg-toyp-navy py-10">
+    <div class="container mx-auto px-4 text-center">
+      <img src="/logo-jci-white.svg" alt="JCI Santo Domingo" class="h-20 mx-auto mb-4" />
+      <p class="text-white/80 mb-4">Desarrollando líderes para un mundo cambiante.</p>
+      <div class="flex justify-center space-x-4">
+        <a href="https://www.facebook.com/jci.santodomingo" class="text-white/70 hover:text-toyp-gold transition-colors">Facebook</a>
+        <a href="https://www.instagram.com/jcisantodomingo/" class="text-white/70 hover:text-toyp-gold transition-colors">Instagram</a>
+        <a href="https://www.tiktok.com/@jci.santodomingo" class="text-white/70 hover:text-toyp-gold transition-colors">TikTok</a>
+      </div>
+      <p class="mt-6 text-sm text-white/50">&copy; 2026 JCI Santo Domingo Tsáchilas</p>
+    </div>
+  </footer>
 </Layout>

@@ -1,17 +1,32 @@
 ---
-// src/layouts/Layout.astro
 import "../styles/global.css";
+
+interface Props {
+  theme?: "light" | "dark";
+  title?: string;
+  description?: string;
+  canonical?: string;
+  year?: number;
+}
+
+const {
+  theme = "light",
+  title = "TOYP 2026 | JCI Santo Domingo",
+  description = "Descubre y postula a los 10 jóvenes más sobresalientes de Santo Domingo de los Tsáchilas 2026.",
+  canonical = "https://jcisantodomingo.org/",
+  year = 2026,
+} = Astro.props;
+
+const isDark = theme === "dark";
+const ogImage = "https://jcisantodomingo.org/images/cover.jpg";
 ---
-<html lang="es" class="dark">
+<html lang="es" class={isDark ? "dark" : ""}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TOYP 2025 | JCI Santo Domingo</title>
-    <meta
-      name="description"
-      content="Descubre y postula a los 10 jóvenes más sobresalientes de Santo Domingo de los Tsáchilas. Inscripciones abiertas hasta el 05 de agosto de 2025."
-    />
-    <link rel="canonical" href="https://jcisantodomingo.org/toyp-2025" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,58 +34,31 @@ import "../styles/global.css";
       rel="stylesheet"
     />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="TOYP 2025 | JCI Santo Domingo Tsáchilas"
-    />
-    <meta
-      property="og:description"
-      content="Descubre y postula a los 10 jóvenes más sobresalientes de Santo Domingo de los Tsáchilas. Inscripciones abiertas hasta el 31 de julio."
-    />
-    <meta
-      property="og:url"
-      content="https://jcisantodomingo.org/toyp-2025"
-    />
-    <meta
-      property="og:image"
-      content="https://jcisantodomingo.org/images/cover.jpg"
-    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@JCIStDomingo" />
-    <meta
-      name="twitter:title"
-      content="TOYP 2025 | JCI Santo Domingo Tsáchilas"
-    />
-    <meta
-      name="twitter:description"
-      content="Descubre y postula a los 10 jóvenes más sobresalientes de Santo Domingo de los Tsáchilas. Inscripciones abiertas hasta el 31 de julio."
-    />
-    <meta
-      name="twitter:image"
-      content="https://jcisantodomingo.org/images/cover.jpg"
-    />
-
-    <!-- Favicon & Tipografía -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
   </head>
-  <body class="bg-[#030303] text-white font-inter antialiased">
+  <body
+    class:list={[
+      "font-inter antialiased",
+      isDark ? "bg-[#030303] text-white" : "bg-white text-toyp-navy",
+    ]}
+  >
     <slot />
 
-    <!-- SimpleAnalytics -->
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
   </body>
-</html> 
+</html>
