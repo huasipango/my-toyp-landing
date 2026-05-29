@@ -133,7 +133,7 @@ export function HeroCTA() {
           animate="visible"
         >
           <ul className="text-base sm:text-lg md:text-xl text-white/100 mb-8 leading-relaxed font-medium tracking-wide max-w-xl mx-auto space-y-3 text-left list-disc list-inside">
-            <li>Tener entre 17 a 35 años.</li>
+            <li>Tener entre 17 a 32 años.</li>
             <li>Haber nacido o ser residente de la provincia de Santo Domingo de los Tsáchilas.</li>
           </ul>
         </motion.div>

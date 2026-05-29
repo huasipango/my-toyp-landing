@@ -34,7 +34,7 @@ export function HeroTOYPInfoAndCTA({
         "relative w-full overflow-hidden",
         isLight
           ? "bg-white pt-28 sm:pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-24"
-          : "min-h-screen flex items-center justify-center bg-[#030303]"
+          : "min-h-screen flex items-center justify-center bg-[#030303]",
       )}
     >
       {!isLight && (
@@ -79,44 +79,62 @@ export function HeroTOYPInfoAndCTA({
               "inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 md:mb-6",
               isLight
                 ? "bg-toyp-sky/10 border border-toyp-sky/25"
-                : "bg-white/[0.03] border border-white/[0.08]"
+                : "bg-white/[0.03] border border-white/[0.08]",
             )}
           >
             <Circle
               className={cn(
                 "h-2 w-2",
-                isLight ? "fill-toyp-sky/80" : "fill-green-500/80"
+                isLight ? "fill-toyp-sky/80" : "fill-green-500/80",
               )}
             />
             <span
               className={cn(
                 "text-sm tracking-wide",
-                isLight ? "text-toyp-sky font-medium" : "text-white/60"
+                isLight ? "text-toyp-sky font-medium" : "text-white/60",
               )}
             >
               ¿Qué es TOYP {year}?
             </span>
           </motion.div>
-          <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
+          <motion.div
+            custom={1}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <h2
               className={cn(
                 "text-3xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 tracking-tight",
                 isLight
                   ? "text-toyp-gold"
-                  : "bg-clip-text text-transparent bg-gradient-to-r from-[#3A67B1] via-[#0097D7] to-[#EDBE38]"
+                  : "bg-clip-text text-transparent bg-gradient-to-r from-[#3A67B1] via-[#0097D7] to-[#EDBE38]",
               )}
             >
               TOYP (Ten Outstanding Young Persons)
             </h2>
           </motion.div>
-          <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
+          <motion.div
+            custom={2}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <p
               className={cn(
                 "text-base sm:text-lg md:text-xl leading-relaxed font-medium tracking-wide max-w-2xl mx-auto px-4",
-                isLight ? "text-neutral-700" : "text-white/100"
+                isLight ? "text-neutral-700" : "text-white/100",
               )}
             >
-              es el programa insignia de JCI que selecciona cada año hasta diez jóvenes de todo el mundo en función de su excelencia profesional, su contribución social y su capacidad demostrada para generar un impacto significativo. Originalmente lanzado a nivel internacional en 1983, el certamen se inspira en las premiaciones nacionales similares que se organizan en más de 100 países afiliados a JCI. Los nominados compiten en diez categorías, que abarcan desde el emprendimiento y el liderazgo académico hasta la innovación médica y la defensa de los derechos humanos.
+              es el programa insignia de JCI que selecciona cada año hasta diez
+              jóvenes de todo el mundo en función de su excelencia profesional,
+              su contribución social y su capacidad demostrada para generar un
+              impacto significativo. Originalmente lanzado a nivel internacional
+              en 1983, el certamen se inspira en las premiaciones nacionales
+              similares que se organizan en más de 100 países afiliados a JCI.
+              Los nominados compiten en diez categorías, que abarcan desde el
+              emprendimiento y el liderazgo académico hasta la innovación médica
+              y la defensa de los derechos humanos.
             </p>
           </motion.div>
         </div>
@@ -131,38 +149,54 @@ export function HeroTOYPInfoAndCTA({
               "inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 md:mb-6",
               isLight
                 ? "bg-toyp-sky/10 border border-toyp-sky/25"
-                : "bg-white/[0.03] border border-white/[0.08]"
+                : "bg-white/[0.03] border border-white/[0.08]",
             )}
           >
             <Circle
               className={cn(
                 "h-2 w-2",
-                isLight ? "fill-toyp-sky/80" : "fill-green-500/80"
+                isLight ? "fill-toyp-sky/80" : "fill-green-500/80",
               )}
             />
             <span
               className={cn(
                 "text-sm tracking-wide",
-                isLight ? "text-toyp-sky font-medium" : "text-white/60"
+                isLight ? "text-toyp-sky font-medium" : "text-white/60",
               )}
             >
               Requisitos
             </span>
           </motion.div>
-          <motion.div custom={4} variants={fadeUpVariants} initial="hidden" animate="visible">
+          <motion.div
+            custom={4}
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <ul
               className={cn(
                 "text-base sm:text-lg md:text-xl mb-4 leading-relaxed font-medium tracking-wide max-w-xl mx-auto space-y-3 text-left list-disc list-inside",
-                isLight ? "text-neutral-700" : "text-white/100"
+                isLight ? "text-neutral-700" : "text-white/100",
               )}
             >
-              <li>Tener entre 17 a 35 años.</li>
-              <li>Haber nacido o ser residente de la provincia de Santo Domingo de los Tsáchilas.</li>
+              <li>Tener entre 17 a 32 años.</li>
+              <li>
+                Haber nacido o ser residente de la provincia de Santo Domingo de
+                los Tsáchilas.
+              </li>
             </ul>
           </motion.div>
           {formUrl && (
-            <motion.div custom={5} variants={fadeUpVariants} initial="hidden" animate="visible">
-              <PostularButton href={formUrl} variant={isLight ? "light" : "dark"} />
+            <motion.div
+              custom={5}
+              variants={fadeUpVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <PostularButton
+                href={formUrl}
+                variant={isLight ? "light" : "dark"}
+              />
             </motion.div>
           )}
         </div>
@@ -218,7 +252,7 @@ function ElegantShapeDark({
             "backdrop-blur-[2px] border-2 border-white/[0.15]",
             "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
             "after:absolute after:inset-0 after:rounded-full",
-            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
+            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]",
           )}
         />
       </motion.div>
